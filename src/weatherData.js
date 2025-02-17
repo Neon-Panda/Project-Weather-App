@@ -5,22 +5,25 @@ const WeatherURL =
 
 const key = "?key=JR979CFU4EDPG3TGB5FN8GJP8";
 
-async function weatherData(city) {
-  const data = await fetch(WeatherURL + city + key);
-  const jsonData = await data.json();
+export default class WeatherData {
+  static async getData(city) {
+    const data = await fetch(WeatherURL + city + key);
+    const jsonData = await data.json();
 
-  return jsonData;
-}
+    return jsonData;
+  }
 
-export default async function ProcessData(city) {
-  weatherData = await weatherData(city);
-  return {
-    address: weatherData.resolvedAddress,
-    description: weatherData.description,
-    condition: weatherData.currentConditions.conditions,
-    humidity: weatherData.currentConditions.humidity,
-    icon: weatherData.currentConditions.icon,
-    precipitationProb: weatherData.currentConditions.precipprob,
-    tempeature: weatherData.currentConditions.temp,
-  };
+  static async processData(city) {
+    const data = await this.getData(city);
+    const usefulData = {
+      address: data.resolvedAddress,
+      description: data.description,
+      condition: data.currentConditions.conditions,
+      humidity: data.currentConditions.humidity,
+      icon: data.currentConditions.icon,
+      precipitationProb: data.currentConditions.precipprob,
+      tempeature: data.currentConditions.temp,
+    };
+    return usefulData;
+  }
 }
