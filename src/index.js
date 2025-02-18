@@ -24,3 +24,8 @@ toggleTemp.addEventListener("click", (event) => {
   PopulateDom.toggleTemp();
   refreshDisplay(city);
 });
+
+document.addEventListener("DOMContentLoaded", async () => {
+  await PopulateDom.storeData("london");
+  refreshDisplay("london");
+});

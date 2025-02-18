@@ -69,8 +69,13 @@ h6 {
 }
 
 body {
-  background-color: darkgray;
+  background-color: hsla(0, 3%, 45%, 0.267);
   font-family: Josefin Sans;
+  background-image: url(https://cdn.pixabay.com/photo/2020/12/23/14/41/forest-5855196_1280.jpg);
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .weather-info {
@@ -79,6 +84,29 @@ body {
   align-items: center;
   padding: 3rem;
   gap: 3rem;
+  text-align: center;
+}
+
+.search {
+  border: none;
+  border-radius: 0.5rem;
+  height: 2.5rem;
+  min-width: 25vw;
+  background-color: hsla(296, 71%, 96%, 0.815);
+  backdrop-filter: blur(2px);
+}
+
+.search:hover,
+button:hover {
+  cursor: pointer;
+  background-color: hsl(296, 71%, 96%);
+}
+
+button {
+  border: none;
+  border-radius: 0.2rem;
+  height: 2rem;
+  background-color: hsla(296, 73%, 96%, 0.918);
 }
 
 .header-info {
@@ -107,14 +135,26 @@ body {
 .days-of-week {
   display: flex;
   gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .weather-day {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 1rem;
   align-items: center;
-  height: 6rem;
-  width: 6rem;
-  background-color: gray;
+  height: 15vh;
+  width: 15vh;
+  border-radius: 0.5rem;
+  background-color: hsla(296, 70%, 96%, 0.411);
+  backdrop-filter: blur(2px);
+}
+
+footer {
+  color: hsla(0, 17%, 93%, 0.534);
+  margin-top: auto;
+  align-self: flex-end;
+  font-size: 0.8rem;
 }
