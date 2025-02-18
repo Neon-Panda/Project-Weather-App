@@ -4,7 +4,7 @@ import PopulateDom from "./populateDom";
 
 const form = document.querySelector("#search");
 const input = document.querySelector("#search-input");
-const toggle = document.querySelector("#toggle");
+const toggleTemp = document.querySelector("#toggle");
 let city = "";
 
 const refreshDisplay = (city) => {
@@ -16,10 +16,11 @@ form.addEventListener("submit", async (event) => {
   event.preventDefault();
   city = input.value;
   input.value = "";
+  await PopulateDom.storeData(city);
   refreshDisplay(city);
 });
 
-toggle.addEventListener("click", (event) => {
-  PopulateDom.toggleTemp(city);
+toggleTemp.addEventListener("click", (event) => {
+  PopulateDom.toggleTemp();
   refreshDisplay(city);
 });

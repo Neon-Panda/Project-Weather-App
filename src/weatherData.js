@@ -25,7 +25,6 @@ export default class WeatherData {
         precipitationProb: data.days[i].precipprob,
         temperature: data.days[i].temp,
         datetime: new Date(data.days[i].datetime),
-        timezone: data.timezone,
       });
     }
     return usefulData;
