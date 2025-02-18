@@ -6,12 +6,19 @@
     <title>Document</title>
   </head>
   <body>
-    <form action="" id="form">
-      <fieldset>
-        <label for="location">Location</label>
-        <input type="text" name="location" id="location" required />
-        <button></button>
-      </fieldset>
-    </form>
+    <section class="weather-info">
+      <form action="" id="search">
+        <input type="search" id="search-input" />
+        <button type="submit">Search</button>
+      </form>
+      <button id="toggle">&deg;F / &deg;C</button>
+      <div class="header-info">
+        <p id="location" class="location">location</p>
+        <p id="temperature" class="temperature">60</p>
+        <p id="condition" class="condition">condition</p>
+        <p id="location-time" class="location-time">time</p>
+      </div>
+      <div id="days-of-week" class="days-of-week"></div>
+    </section>
   </body>
 </html>

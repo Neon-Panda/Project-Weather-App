@@ -15,15 +15,19 @@ export default class WeatherData {
 
   static async processData(city) {
     const data = await this.getData(city);
-    const usefulData = {
-      address: data.resolvedAddress,
-      description: data.description,
-      condition: data.currentConditions.conditions,
-      humidity: data.currentConditions.humidity,
-      icon: data.currentConditions.icon,
-      precipitationProb: data.currentConditions.precipprob,
-      tempeature: data.currentConditions.temp,
-    };
+    const usefulData = [];
+    for (let i = 0; i < 7; i++) {
+      usefulData.push({
+        address: data.resolvedAddress,
+        description: data.days[i].description,
+        condition: data.days[i].conditions,
+        humidity: data.days[i].humidity,
+        precipitationProb: data.days[i].precipprob,
+        temperature: data.days[i].temp,
+        datetime: new Date(data.days[i].datetime),
+        timezone: data.timezone,
+      });
+    }
     return usefulData;
   }
 }

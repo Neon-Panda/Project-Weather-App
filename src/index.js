@@ -1,16 +1,25 @@
 import "./styles.css";
 import WeatherData from "./weatherData";
+import PopulateDom from "./populateDom";
 
-document.addEventListener("DOMContentLoaded", async () => {
-  console.log(await WeatherData.processData("london"));
-});
+const form = document.querySelector("#search");
+const input = document.querySelector("#search-input");
+const toggle = document.querySelector("#toggle");
+let city = "";
 
-const form = document.querySelector("#form");
-const input = document.querySelector("#location");
+const refreshDisplay = (city) => {
+  PopulateDom.infoToday(city);
+  PopulateDom.infoWeek(city);
+};
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
-  const city = input.value;
+  city = input.value;
   input.value = "";
-  console.log(await ProcessData(city));
+  refreshDisplay(city);
+});
+
+toggle.addEventListener("click", (event) => {
+  PopulateDom.toggleTemp(city);
+  refreshDisplay(city);
 });
